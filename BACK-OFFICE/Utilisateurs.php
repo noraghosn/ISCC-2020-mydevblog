@@ -19,17 +19,18 @@
     }
     $pdo=connect_to_database();
     ?>
-    <ul>
+
+<ul>
         <?php   
 
-        function articles($pdo){
-            $articles=$pdo->query("SELECT * FROM Articles")->fetchAll();
+        function utilisateurs($pdo){
+            $utilisateurs=$pdo->query("SELECT * FROM utilisateurs")->fetchAll();
 
-            foreach ($articles as $article){
-                echo '<h3><li>'.$article['Titre'].'<li></h3>';
-                echo '<p>'.$article['Extrait'].'</p>';
+            foreach ($utilisateurs as $utilisateur){
+                echo '<h3><li>'.$utilisateur["Nom d'utilisateur"].'<li></h3>';
             }
         }
 
-        articles($pdo);
+        utilisateurs($pdo);
         ?>
+</ul>
