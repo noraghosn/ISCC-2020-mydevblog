@@ -1,12 +1,4 @@
 <html>
-<header>
-    <title> AxeL Officiel Music </title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset= "utf-8">
-<?php 
-    include("front.php");
-?>
-</header>
 
 <h2> <b>Contact </b></h2>
         <form method= "post" action="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/Contact.php">
@@ -20,13 +12,9 @@
             </p>
            <p>
             <label for="Message"> Votre message:</label>   
-            <input type="text" name= "Message" id="Message" placeholder="J'aimerais des renseignements'..." style="width: 250px;"/>
+            <input type="text" name= "Message" id="Message" placeholder="J'aimerais des renseignements..." style="width: 250px;"/>
         </p>
             <input type="submit" value="Envoyer">
         </form>
 
-
-        <?php
-    include ("footer.php");
-        ?>
 </html>

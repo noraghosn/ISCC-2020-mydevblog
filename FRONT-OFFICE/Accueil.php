@@ -1,13 +1,3 @@
-<html>
-<header>
-    <title> AxeL Officiel Music </title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset= "utf-8">
-<?php 
-    include("front.php");
-?>
-</header>
-
 <?php
     echo "<h3> À propos...</h3>";
     echo "<p> AxeL est une jeune chanteuse française aux influences électro-soul.
@@ -19,8 +9,4 @@
     ainsi que Vincent Baguian (ancien chargé de communication de Serge Gainsbourg, auteur de Benabar, Zazie et divers Opéras Rock).
     
     </p>";
-
-    include ("footer.php");
 ?>
-
-</html>
