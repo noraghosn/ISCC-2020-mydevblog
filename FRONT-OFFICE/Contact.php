@@ -1,3 +1,6 @@
+<?php
+include("header.php");
+?>
 <html>
 
 <h2> <b>Contact </b></h2>
@@ -18,3 +21,6 @@
         </form>
 
 </html>
+<?php
+include("footer.php");
+?>

@@ -1,4 +1,5 @@
 <?php
+include("header.php");
     function connect_to_database (){
         $servername= "localhost";
         $username= "root";
@@ -9,7 +10,6 @@
             $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
 
-            echo "Connected successfully <br>";
             return $pdo;
         }
 
@@ -24,12 +24,13 @@
 
         function articles($pdo){
             $articles=$pdo->query("SELECT * FROM Articles")->fetchAll();
-
+            $articles = array_reverse($articles);
             foreach ($articles as $article){
-                echo '<h3><li>'.$article['Titre'].'<li></h3>';
+                echo '<h3><li>'.$article['Titre'].'</li></h3>';
                 echo '<p>'.$article['Extrait'].'</p>';
             }
         }
 
         articles($pdo);
+        include("footer.php");
         ?>
