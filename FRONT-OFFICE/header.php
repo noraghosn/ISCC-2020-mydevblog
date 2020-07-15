@@ -8,7 +8,6 @@
     <nav> 
         <a href="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/FRONT-OFFICE/Accueil.php"> Accueil </a>
         <a href="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/FRONT-OFFICE/Articles.php"> Articles </a>
-        <a href="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/FRONT-OFFICE/Article.php"> Article </a>
         <a href="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/FRONT-OFFICE/Contact.php"> Contact </a>
     </nav>
 </header>

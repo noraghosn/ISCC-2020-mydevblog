@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+
     function connect_to_database (){
         $servername= "localhost";
         $username= "root";
@@ -10,6 +10,7 @@ include("header.php");
             $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
 
+            echo "Connected successfully <br>";
             return $pdo;
         }
 
@@ -17,20 +18,19 @@ include("header.php");
             echo "Connection failed:". $e->getMessage();
         }
     }
+    $sup= $_GET['id'];
     $pdo=connect_to_database();
-    ?>
-    <ul>
-        <?php   
-
-        function articles($pdo){
-            $articles=$pdo->query("SELECT * FROM Articles")->fetchAll();
-            $articles = array_reverse($articles);
-            foreach ($articles as $article){
-                echo '<h3><li>'.$article['Titre'].'</li></h3>';
-                echo '<p>'.$article['Extrait'].'</p>';
-            }
-        }
-
-        articles($pdo);
-        include("footer.php");
-        ?>
+    suppr_data($pdo,$sup);
+    
+function suppr_data($pdo,$sup){
+    try{
+        $requete= "DELETE FROM utilisateurs
+        WHERE id = '$sup' ";
+        $pdo->exec($requete);
+        echo "success";
+    }
+    catch (PDOException $e) {
+        echo "Erreur insert". $e->getMessage();
+    }
+}
+?>

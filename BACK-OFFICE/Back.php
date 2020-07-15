@@ -13,8 +13,6 @@ include("header.php");
             echo '<h1> Utilisateurs <h1>';
             include ('Utilisateurs.php');
         }
-
-    include("footer.php");
     ?>
 </body>
 </html>

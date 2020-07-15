@@ -3,8 +3,8 @@ include("header.php");
 ?>
 <form method= "post" action="Ajout_utilisateur.php">
            <p> 
-              <label for="Nom d'utilisateur"> Nom d'utilisateur:</label> 
-              <input type="text" name= "Nom d'utilisateur" id="Nom d'utilisateur" placeholder="n_gsn" style="width: 250px;" style="height: 30px;"/>
+              <label for="Nom_utilisateur"> Nom d'utilisateur:</label> 
+              <input type="text" name= "Nom_utilisateur" id="Nom_utilisateur" placeholder="n_gsn" style="width: 250px;" style="height: 30px;"/>
             </p>
             <p> 
               <label for="Loginn"> Loginn:</label> 
@@ -12,7 +12,48 @@ include("header.php");
             </p>
             <p> 
               <label for="Mot de passe"> Mot de passe:</label> 
-              <input type="text" name= "Mot de passe" id="Mot de passe" placeholder="2sdr..." style="width: 250px;" style="height: 30px;"/>
+              <input type="text" name= "Mot_de_passe" id="Mot de passe" placeholder="2sdr..." style="width: 250px;" style="height: 30px;"/>
             </p>
             <input type="submit" value="Envoyer">
 </form>
+
+<?php
+    function connect_to_database (){
+      $servername= "localhost";
+      $username= "root";
+      $password="root";
+      $databasename= "AxeL Officiel";
+
+      try{
+          $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
+
+          echo "Connected successfully <br>";
+          return $pdo;
+      }
+
+      catch (PDOException $e) {
+          echo "Connection failed:". $e->getMessage();
+      }
+  }
+  $pdo=connect_to_database();
+
+  function insert_data($pdo){
+
+    $Nm= $_POST['Nom_utilisateur'];
+    $Login= $_POST['Loginn'];
+    $mdp=$_POST ['Mot_de_passe'];
+
+    try{
+      $requete = "INSERT INTO utilisateurs(Nom_utilisateur, Loginn, Mot_de_passe) 
+               VALUES('$Nm', '$Login', '$mdp')";
+
+        $pdo->exec($requete);
+        echo "success";
+            }
+            catch (PDOException $e) {
+                echo "Erreur insert". $e->getMessage();
+            }
+        }
+insert_data($pdo);
+  ?>

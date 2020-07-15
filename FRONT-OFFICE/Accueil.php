@@ -15,13 +15,11 @@
         $servername= "localhost";
         $username= "root";
         $password="root";
-        $databasename= "Articles Stock";
+        $databasename= "AxeL Officiel";
 
         try{
             $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-
-            //echo "Connected successfully <br>";
             return $pdo;
         }
 

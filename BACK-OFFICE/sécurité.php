@@ -3,7 +3,7 @@
       $servername= "localhost";
       $username= "root";
       $password="root";
-      $databasename= "Articles Stock";
+      $databasename= "AxeL Officiel";
 
       try{
           $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
@@ -30,7 +30,7 @@ $Password=$_POST ['Password'];
 $b=0;
 foreach ($users as $user) {
 
-if ($Login == $user ['Login'])
+if ($Login == $user ['Loginn'])
 {
 if ($Password== $user['Mot de passe'])
 {   include("header.php");

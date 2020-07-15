@@ -6,7 +6,7 @@ include("header.php");
         $servername= "localhost";
         $username= "root";
         $password="root";
-        $databasename= "Articles Stock";
+        $databasename= "AxeL Officiel";
 
         try{
             $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
@@ -22,18 +22,6 @@ include("header.php");
     }
     $pdo=connect_to_database();
 
-    function suppr_data($pdo,$sup){
-    try{
-        echo $sup;
-        $requete= "DELETE FROM utilisateurs
-        WHERE Loginn = '$sup' ";
-        $pdo->exec($requete);
-        echo "success";
-    }
-    catch (PDOException $e) {
-        echo "Erreur insert". $e->getMessage();
-    }
-}
 ?>
 
 <ul>
@@ -43,13 +31,15 @@ include("header.php");
             $utilisateurs=$pdo->query("SELECT * FROM utilisateurs")->fetchAll();
 
             foreach ($utilisateurs as $utilisateur){
-                $sup = $utilisateur['Loginn'];
+                $sup = $utilisateur['id'];
                 echo '<h3><li>'.$utilisateur["Nom d'utilisateur"].'</li></h3>';
+                echo "test";
                 ?>
-                <form method= "post" action="Utilisateurs.php">
-                <input type="button" value="NEXT"  onclick="document.write('<?php suppr_data($pdo,$sup) ?>');" /> 
+                <form action="Supprimer_utilisateur.php?id=<?php echo $sup ?>" method= "post">
+                <input type="submit" value="Supprimer" /> 
                 </form>
                 <?php
+                 echo "test";
             }
         }
 
