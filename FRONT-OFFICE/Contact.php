@@ -4,10 +4,10 @@ include("header.php");
 <html>
 
 <h2> <b>Contact </b></h2>
-        <form method= "post" action="http://localhost:8888/ISCC-2020/ISCC-2020-mydevblog/Contact.php">
+        <form method= "post" action="Contact.php">
            <p> 
-              <label for="Nom Prénom"> Nom/Prénom:</label> 
-              <input type="text" name= "Nom Prénom" id="Nom Prénom" placeholder="Lucie Dano" style="width: 250px;" style="height: 30px;"/>
+              <label for="Nom_Prénom"> Nom/Prénom:</label> 
+              <input type="text" name= "Nom_Prénom" id="Nom_Prénom" placeholder="Lucie Dano" style="width: 250px;" style="height: 30px;"/>
             </p>
            <p> 
                 <label for="Email"> Email:</label> 
@@ -21,7 +21,6 @@ include("header.php");
         </form>
 
 </html>
-
 <?php
    function connect_to_database (){
       $servername= "localhost";
@@ -32,7 +31,6 @@ include("header.php");
       try{
           $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-
           return $pdo;
         }
 
@@ -44,33 +42,23 @@ include("header.php");
   $pdo=connect_to_database();
 
   function envoyer($pdo){
+    $Nom= $_POST['Nom_Prénom'];
+    $Mail= $_POST['Email'];
+    $Mess= $_POST['Messagee'];
 
-      $message=$pdo->query("SELECT * FROM Contact")->fetchAll();
-      
-      /*$Login= $_POST['Login'];
-      $Password=$_POST ['Password'];
-      
-      $b=0;
-      foreach ($users as $user) {
-      
-      if ($Login == $user ['Loginn'])
-      {
-      if ($Password== $user['Mot de passe'])
-      {   include("header.php");
-          echo "Vous êtes connectés.";
-          $b=1;
-      }
-      
-      }
-      }
-      if ($b==O){
-      echo "<p> Mauvais couple identifiant / mot de passe. </p>";
-      echo '<a href="Connexion.php"> Connexion</a>';
-      }
-      }
-      
-      afficher($pdo);
-      ?>
+    echo $Mess;
 
-include("footer.php");*/
+        try{
+          $requete = "INSERT INTO Contact(Nom_Prénom, Email, Messagee) 
+          VALUES('$Nom', '$Mail', '$Mess')";
+
+          $pdo->exec($requete);
+          echo "Contact effectué!";
+            }
+         catch (PDOException $e) {
+           echo "Erreur insert". $e->getMessage();
+            }
+  }
+envoyer($pdo);
+include("footer.php");
 ?>

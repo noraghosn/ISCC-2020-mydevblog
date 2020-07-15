@@ -25,12 +25,19 @@ include("header.php");
         function articles($pdo){
             $articles=$pdo->query("SELECT * FROM Articles")->fetchAll();
             $articles = array_reverse($articles);
+
             foreach ($articles as $article){
                 echo '<h3><li>'.$article['Titre'].'</li></h3>';
                 echo '<p>'.$article['Extrait'].'</p>';
+                $nombre_article=$article['id'];
+                ?>
+
+                <a href="Article.php?id=<?php echo $nombre_article ?>"> Lire la suite </a>
+                <?php
             }
         }
 
         articles($pdo);
         include("footer.php");
         ?>
+ </ul>
