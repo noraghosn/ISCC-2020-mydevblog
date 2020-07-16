@@ -64,7 +64,7 @@ include("header.php");
             </p>
             <p> 
               <label for="Image" > Image:</label> 
-              <input type="text" name="photo" id="photo" style="width: 250px;" style="height: 30px;"/> 
+              <input type="text" name="photo" id="photo" placeholder="adresse de l'image" style="width: 250px;" style="height: 30px;"/> 
             </p>
             <p> 
               <label for="Date de publication"> Date de publication:</label> 
