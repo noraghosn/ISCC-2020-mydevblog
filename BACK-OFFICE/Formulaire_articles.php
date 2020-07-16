@@ -1,32 +1,33 @@
 <?php
+session_start();
+function connect_to_database (){
+  $servername= "localhost";
+  $username= "root";
+  $password="root";
+  $databasename= "AxeL Officiel";
+
+  try{
+      $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
+
+      return $pdo;
+  }
+
+  catch (PDOException $e) {
+      echo "Connection failed:". $e->getMessage();
+  }
+}
+$pdo=connect_to_database();
+
 include("header.php");
 
-function connect_to_database (){
-    $servername= "localhost";
-    $username= "root";
-    $password="root";
-    $databasename= "AxeL Officiel";
-
-      try{
-          $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-          echo "Connected";
-          return $pdo;
-        }
-
-      catch (PDOException $e) {
-          echo "Connection failed:". $e->getMessage();
-        }
-      }
-  
-$pdo=connect_to_database();
 
 function insert_data($pdo){
 
     $Titre= $_POST['Titre'];
-    $Image = file_get_contents('logo_epitech.png');
+    $Image = $_POST['photo'];
     $Date= $_POST['Date_de_publication'];
-    $Auteur=$_POST ['Auteur'];
+    $Auteur=$_SESSION ['Loginn'];
     $Contenu= $_POST['Contenu'];
     $Extrait=$_POST ['Extrait'];
 
@@ -35,7 +36,7 @@ function insert_data($pdo){
                VALUES('$Titre', '$Image', '$Date', '$Auteur', '$Contenu', '$Extrait')";
 
         $pdo->exec($requete);
-        echo "success";
+        echo "Article ajouté!";
             }
             catch (PDOException $e) {
                 echo "Erreur insert". $e->getMessage();
@@ -44,7 +45,5 @@ function insert_data($pdo){
 insert_data($pdo);
 
 ?>
-
-
 
 

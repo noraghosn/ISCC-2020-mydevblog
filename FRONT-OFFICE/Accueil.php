@@ -1,6 +1,12 @@
+<html>
 <?php
     include("header.php");
-    echo "<h3> À propos...</h3>";
+?>
+<div class="Soustitre">
+<h2> <b>Accueil </b></h2>
+</div>
+<?php
+    echo "<h3><b> À propos...</b></h3>";
     echo "<p> AxeL est une jeune chanteuse française aux influences électro-soul.
     Après avoir suivi avec succès le cursus de la Music Academy International et arpenté les scènes en première partie d’artistes confirmés, elle se retrouve sur The Voice. <br> <br>
     
@@ -49,3 +55,4 @@
     articles($pdo);
     include("footer.php");
 ?>
+</html>

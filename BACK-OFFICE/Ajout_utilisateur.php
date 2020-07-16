@@ -1,4 +1,55 @@
 <?php
+session_start();
+
+function connect_to_database (){
+  $servername= "localhost";
+  $username= "root";
+  $password="root";
+  $databasename= "AxeL Officiel";
+
+  try{
+      $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
+
+      return $pdo;
+  }
+
+  catch (PDOException $e) {
+      echo "Connection failed:". $e->getMessage();
+  }
+}
+$pdo=connect_to_database();
+
+function vérification($pdo){
+
+  $users=$pdo->query("SELECT * FROM utilisateurs")->fetchAll();
+  
+  $Login= $_SESSION['Loginn'];
+  $Password= $_SESSION['Mot_de_passe'];
+
+
+  $b=0;
+  foreach ($users as $user) {
+  
+  if ($Login == $user ['Loginn'])
+  {
+  if ($Password== $user['Mot_de_passe'])
+  {   
+      $b=1;
+  }
+  
+  }
+  }
+  if ($b==O){
+  echo '<a href="Connexion.php"> Connexion</a>';
+  }
+  return $b;
+  }
+  
+  $b=vérification($pdo);
+
+if ($b==1){
+
 include("header.php");
 ?>
 <form method= "post" action="Ajout_utilisateur.php">
@@ -18,26 +69,7 @@ include("header.php");
 </form>
 
 <?php
-    function connect_to_database (){
-      $servername= "localhost";
-      $username= "root";
-      $password="root";
-      $databasename= "AxeL Officiel";
-
-      try{
-          $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-
-          echo "Connected successfully <br>";
-          return $pdo;
-      }
-
-      catch (PDOException $e) {
-          echo "Connection failed:". $e->getMessage();
-      }
-  }
-  $pdo=connect_to_database();
-
+   
   function insert_data($pdo){
 
     $Nm= $_POST['Nom_utilisateur'];
@@ -49,11 +81,11 @@ include("header.php");
                VALUES('$Nm', '$Login', '$mdp')";
 
         $pdo->exec($requete);
-        echo "success";
             }
             catch (PDOException $e) {
                 echo "Erreur insert". $e->getMessage();
             }
         }
 insert_data($pdo);
+      }
   ?>

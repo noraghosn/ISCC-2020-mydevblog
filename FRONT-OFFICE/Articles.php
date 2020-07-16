@@ -1,5 +1,11 @@
+<html>
 <?php
 include("header.php");
+?>
+<div class="Soustitre">
+<h2> <b>Articles </b></h2>
+</div>
+<?php
     function connect_to_database (){
         $servername= "localhost";
         $username= "root";
@@ -32,7 +38,7 @@ include("header.php");
                 $nombre_article=$article['id'];
                 ?>
 
-                <a href="Article.php?id=<?php echo $nombre_article ?>"> Lire la suite </a>
+                <a class="article" href="Article.php?page=Article&id=<?php echo $nombre_article; ?>"> Lire la suite </a>
                 <?php
             }
         }
@@ -41,3 +47,4 @@ include("header.php");
         include("footer.php");
         ?>
  </ul>
+ </html>

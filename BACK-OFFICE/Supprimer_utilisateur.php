@@ -21,7 +21,7 @@
     $sup= $_GET['id'];
     $pdo=connect_to_database();
     suppr_data($pdo,$sup);
-    
+
 function suppr_data($pdo,$sup){
     try{
         $requete= "DELETE FROM utilisateurs

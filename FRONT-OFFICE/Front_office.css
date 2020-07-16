@@ -1,0 +1,97 @@
+html {
+    background-color:#E9EAEA;
+        font-family: 'Open sans';
+        font-size: 14px;
+}
+header {
+    background-image: url('Bannière_vide.jpg');
+    height: 350px;
+    width: 100%;
+    border: black 1px solid;
+    background-size: cover;
+}
+h1{
+    font-family: Andale Mono, monospace;
+    font-weight: 100;
+    letter-spacing: 10px;
+    font-size: 80px;
+    text-shadow: 2px 3px #D4D3CD;
+    text-align: center;
+    vertical-align: auto;
+}
+.signature{
+    font-family: Andale Mono, monospace;
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 0px;
+    color: rgb(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.Soustitre{
+    font-family: Andale Mono, monospace;
+    font-weight: 100;
+    font-size: 25px;
+    line-height: 0px;
+    color: rgb(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+h3{
+    text-decoration: underline;
+    font-size: 17px;
+    color: #CFB410;
+}
+
+.navigation {
+    display: inline-flexbox;
+    flex-direction: row;
+    background-color: #2e2f30;
+    padding-right: 20px ;
+    margin: 0px;
+    color: #FFFFFF;
+    text-align: right;
+
+}
+a:hover {
+    color:#0F9CAF;
+}
+
+
+.foot{
+position: relative;
+height: 340px;
+width: 100%;
+border: black 0.5px solid;
+background-size: cover;
+margin: 0px;
+background-color: #2e2f30;
+text-align: center;
+}
+
+.lienfooter{
+    color: #FFFFFF;
+}
+
+.renseignements{
+    position: absolute;
+    top: 20px;
+    left: 280px;
+    color: white;
+    font-weight: bold;
+}
+
+.reseaux{
+    position: absolute;
+    right: 280px;
+    top: 20px;
+    font-weight: bold;
+}
+
+.article{
+    color:#0F9CAF;
+}
+
+.Formulaire{
+    text-align: center;
+}
