@@ -1,4 +1,8 @@
+<html>
 <meta charset= "utf-8">
+<div class="Soustitre">
+<h2> Connexion </h2>
+</div>
 <form method= "post" action="securite.php">
            <p> 
               <label for="Login"> Login:</label> 
@@ -10,3 +14,4 @@
             </p>
             <input type="submit" value="Envoyer">
 </form>
+</html>

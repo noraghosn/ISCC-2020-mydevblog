@@ -9,8 +9,6 @@
         try{
             $pdo=new PDO ("mysql:host=$servername; dbname=$databasename", $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
-
-            echo "Connected successfully <br>";
             return $pdo;
         }
 
@@ -27,7 +25,7 @@ function suppr_data($pdo,$sup){
         $requete= "DELETE FROM utilisateurs
         WHERE id = '$sup' ";
         $pdo->exec($requete);
-        echo "success";
+        echo "<h3>Utilisateur supprimé!</h3>";
     }
     catch (PDOException $e) {
         echo "Erreur insert". $e->getMessage();

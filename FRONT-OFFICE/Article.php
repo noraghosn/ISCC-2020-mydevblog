@@ -28,7 +28,7 @@ while ($données = $articles->fetch())
     echo '<h3><li>'.$données['Titre'].'</li></h3>';
     echo '<p>'.$données['Contenu'].'</p>';
     ?>
-    <img src= <?php echo $données['Imagee'] ?> width="700" height="400">
+    <img src= <?php echo $données['Imagee'] ?> width="500" height="400"> <br> <br>
     <?php
 }
 

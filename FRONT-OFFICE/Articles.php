@@ -38,7 +38,7 @@ include("header.php");
                 $nombre_article=$article['id'];
                 ?>
 
-                <a class="article" href="Article.php?page=Article&id=<?php echo $nombre_article; ?>"> Lire la suite </a>
+                <a class="article" href="Article.php?page=Article&id=<?php echo $nombre_article; ?>"> Lire la suite </a> <br> <br>
                 <?php
             }
         }

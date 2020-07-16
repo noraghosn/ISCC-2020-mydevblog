@@ -1,3 +1,4 @@
+<htmL>
 <?php
 session_start();
 
@@ -52,7 +53,9 @@ if ($b==1){
         include("header.php");
 
 ?>
-
+<div class="Soustitre">
+<h2> Utilisateurs </h2>
+</div>
 <ul>
         <?php   
 
@@ -74,3 +77,4 @@ if ($b==1){
     }
         ?>
 </ul>
+</html>

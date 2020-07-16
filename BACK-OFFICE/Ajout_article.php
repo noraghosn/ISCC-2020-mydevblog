@@ -1,3 +1,4 @@
+<html>
 <?php
 
 session_start();
@@ -53,6 +54,9 @@ if ($b==1){
 
 include("header.php");
 ?>
+<div class="Soustitre">
+<h2> Ajouter un article </h2>
+</div>
 <form method= "post" enctype="multipart/form-data" action="Formulaire_articles.php">
            <p> 
               <label for="Titre"> Titre:</label> 
@@ -79,3 +83,4 @@ include("header.php");
 <?php
 }
 ?>
+</html>

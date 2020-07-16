@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 function connect_to_database (){
   $servername= "localhost";
   $username= "root";
@@ -18,32 +18,24 @@ function connect_to_database (){
   }
 }
 $pdo=connect_to_database();
-
 include("header.php");
-
 
 function insert_data($pdo){
 
-    $Titre= $_POST['Titre'];
-    $Image = $_POST['photo'];
-    $Date= $_POST['Date_de_publication'];
-    $Auteur=$_SESSION ['Loginn'];
-    $Contenu= $_POST['Contenu'];
-    $Extrait=$_POST ['Extrait'];
+    $Nm=$_POST['Nom_utilisateur'];
+    $Login=$_POST['Loginn'];
+    $mdp=$_POST ['Mot_de_passe'];
 
     try{
-      $requete = "INSERT INTO Articles(Titre, Imagee, Date_de_publication, Auteur, Contenu, Extrait) 
-               VALUES('$Titre', '$Image', '$Date', '$Auteur', '$Contenu', '$Extrait')";
+      $requete = "INSERT INTO utilisateurs(Nom_utilisateur, Loginn, Mot_de_passe) 
+               VALUES('$Nm', '$Login', '$mdp')";
 
         $pdo->exec($requete);
-        echo "<h3>Article ajouté!</h3>";
+        echo "<h3>Utilisateur ajouté!</h3>";
             }
             catch (PDOException $e) {
                 echo "Erreur insert". $e->getMessage();
             }
         }
 insert_data($pdo);
-
-?>
-
-
+  ?>

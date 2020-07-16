@@ -1,3 +1,4 @@
+<html>
 <?php
 session_start();
 
@@ -52,7 +53,10 @@ if ($b==1){
 
 include("header.php");
 ?>
-<form method= "post" action="Ajout_utilisateur.php">
+<div class="Soustitre">
+<h2> Ajouter un utilisateur </h2>
+</div>
+<form method= "post" action="Ajouter_utilisateur.php">
            <p> 
               <label for="Nom_utilisateur"> Nom d'utilisateur:</label> 
               <input type="text" name= "Nom_utilisateur" id="Nom_utilisateur" placeholder="n_gsn" style="width: 250px;" style="height: 30px;"/>
@@ -67,25 +71,7 @@ include("header.php");
             </p>
             <input type="submit" value="Envoyer">
 </form>
-
 <?php
-   
-  function insert_data($pdo){
-
-    $Nm= $_POST['Nom_utilisateur'];
-    $Login= $_POST['Loginn'];
-    $mdp=$_POST ['Mot_de_passe'];
-
-    try{
-      $requete = "INSERT INTO utilisateurs(Nom_utilisateur, Loginn, Mot_de_passe) 
-               VALUES('$Nm', '$Login', '$mdp')";
-
-        $pdo->exec($requete);
-            }
-            catch (PDOException $e) {
-                echo "Erreur insert". $e->getMessage();
-            }
-        }
-insert_data($pdo);
       }
-  ?>
+?>
+</html>
